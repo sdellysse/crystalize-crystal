@@ -19,11 +19,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+const compileRoutes = require("./compile-routes");
 const createServer = require("http").createServer;
 const getPath = require("./get-path");
 const makeGroupProxy = require("./make-group-proxy");
 const Group = require("crystalize-group");
-const Route = require("crystalize-route");
 
 const Crystal = function (cb) {
     this.Promise = Crystal.Promise;
@@ -50,12 +50,8 @@ for (let key of Object.keys(Group.prototype)) {
 }
 
 Object.assign(Crystal.prototype, {
-    compileRoutes: function () {
-        return this.getRootGroup().collectRoutes().map(r => new Route(r.methods, r.path, r.handlers));
-    },
-
     createServerCallback: function () {
-        const routes = this.compileRoutes();
+        const routes = compileRoutes(this);
 
         return (req, res) => {
             let promise = null;

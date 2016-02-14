@@ -3,13 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "fast-url-parser": "1.1.3"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crystalize/crystalize-crystal.git"
   },
   "keywords": [],
   "author": "Shawn Dellysse <sdellysse@gmail.com> (http://shawndellysse.com)",
   "license": "ISC",
-  "dependencies": {
-    "fast-url-parser": "1.1.3"
-  }
+  "bugs": {
+    "url": "https://github.com/crystalize/crystalize-crystal/issues"
+  },
+  "homepage": "https://github.com/crystalize/crystalize-crystal#readme"
 }

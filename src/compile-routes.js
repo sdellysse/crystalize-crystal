@@ -19,15 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-const makeGroupProxy = function (name) {
-    return function () {
-        const group = this.getRootGroup();
+const Route = require("crystalize-route");
 
-        const groupRetval = group[name].apply(group, arguments);
-        if (groupRetval === group) {
-            return this;
-        } else {
-            return groupRetval;
-        }
-    };
+const compileRoutes = function (crystal) {
+    return crystal.getRootGroup().collectRoutes().map(r => new Route(r.methods, r.path, r.handlers));
 };
+
+module.exports = compileRoutes;
