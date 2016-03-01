@@ -1,10 +1,12 @@
 {
   "name": "crystalize-crystal",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "fast-url-parser": "1.1.3"
+    "crystalize-group": "*",
+    "crystalize-promise": "*",
+    "fast-url-parser": "~1.1.3"
   },
   "devDependencies": {},
   "scripts": {
